@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html>
+<html lang="id">
+<head>
+<meta name="charset" content="UTF-8">
+<meta name="viewport" content="width=width-device-width, initial-scale=1.0">
+<title>Telepon</title>
+<style>
+body{
+    padding: 0px;
+    background-color: #000;
+    box-sizing: border-box;
+    width: 1300px;
+    height:700px;
+    min-width:720px;
+    display:grid;
+    grid-template-areas: 
+                        "header"
+                        "telepon"
+                        "footer";
+    grid-template-columns: 100%;
+    grid-template-rows: 1fr 2fr 1fr;
+    justify-items: center;
+    grid-gap: 2px;
+}
+
+header{
+    grid-area: header;
+    color:#ddd;
+    
+    margin-bottom: 0px;
+    }
+
+.telepon{
+    display: grid;
+    justify-items: center;
+    align-items:center ;
+    grid-template-rows:95%;
+    grid-template-columns: 95%;
+    }
+
+form{
+    display:grid;
+    color:#ddd;
+    align-items: stretch;
+    justify-items: center;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(6, 1fr);
+    grid-gap:1px;
+}
+
+/* button style */
+
+#whiteboard{
+    color:#000;
+    grid-column-start: 1;
+    grid-column-end: 4;
+    grid-column: span;
+    grid-row-start: 1;
+    grid-row-end: 2;
+    background-color: white;
+}
+
+#item1{
+    grid-column: 1;
+    grid-row: 2;
+}
+#item2{
+    grid-column: 2;
+    grid-row: 2;
+}
+#item3{
+    grid-column: 3;
+    grid-row: 2;
+}
+#item4{
+    grid-column: 1;
+    grid-row: 3;
+}
+#item5{
+    grid-column: 2;
+    grid-row: 3;
+}
+#item6{
+    grid-column: 3;
+    grid-row: 3;
+}
+#item7{
+    grid-column: 1;
+    grid-row: 4;
+}
+#item8{
+    grid-column: 2;
+    grid-row: 4;
+}
+#item9{
+    grid-column: 3;
+    grid-row: 4;
+}
+#item s{
+    grid-column: 1;
+    grid-row: 5;
+}
+#item0{
+    grid-column: 2;
+    grid-row: 5;
+}
+#item_t{
+    grid-column: 3;
+    grid-row: 5;
+}
+
+#submit1{
+    grid-column-start: 1;
+    grid-column-end: 3;
+    grid-column: span;
+    grid-row: 6;
+    color: white;
+    background-color: green;
+}
+#submit2{
+    grid-column-start: 2;
+    grid-column-end: 4;
+    grid-column: span;
+    grid-row: 6;
+    color: maroon;
+    background-color: aqua;
+
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <div class="container">
+        <h1>Telepon</h1>
+    </div>
+    
+</header>
+
+<div class="telepon">
+    <form>
+        <input id="whiteboard" type="tel" placeholder="+6281-223-4567">
+        <input id="item1" type="button" value="1">
+        <input id="item2" type="button" value="2">
+        <input id="item3" type="button" value="3">
+        <input id="item4" type="button" value="4">
+        <input id="item5"type="button" value="5">
+        <input id="item6" type="button" value="6">
+        <input id="item7" type="button" value="7">
+        <input id="item8" type="button" value="8">
+        <input id="item9" type="button" value="9">
+        <input id="item s" type="button" value="*">
+        <input id="item0" type="button" value="0">
+        <input id="item_t" type="button" value="#">
+        <input id="submit1" type="submit" value="Sim 1">
+        <input id="submit2" type="submit" value="sim 2">
+        
+    </form>
+</div>
+
+<footer>
+
+</footer>
+</body>    
+</html>
