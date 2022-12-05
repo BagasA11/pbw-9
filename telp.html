@@ -10,18 +10,21 @@ body{
     padding: 0px;
     background-color: #000;
     box-sizing: border-box;
-    width: 1300px;
-    height:700px;
+    /*width: 1300px;
     min-width:720px;
+
+    */
+    height:700px;
     display:grid;
     grid-template-areas: 
                         "header"
                         "telepon"
                         "footer";
-    grid-template-columns: 100%;
-    grid-template-rows: 1fr 2fr 1fr;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 2fr 3fr;
     justify-items: center;
     grid-gap: 2px;
+    border: yellow solid 2px;
 }
 
 header{
@@ -32,12 +35,24 @@ header{
     }
 
 .telepon{
+    grid-area:telepon;
     display: grid;
     justify-items: center;
     align-items:center ;
-    grid-template-rows:95%;
+    grid-template-rows:98%;
     grid-template-columns: 95%;
+    
     }
+
+footer{
+    grid-area:footer;
+    display:grid;
+    justify-items: center;
+    align-items:center ;
+    grid-template-rows: 1fr 3fr;
+    border:#ddd dashed 1px;    
+    color: #ddd;
+}
 
 form{
     display:grid;
@@ -45,8 +60,10 @@ form{
     align-items: stretch;
     justify-items: center;
     grid-template-columns: repeat(3, 1fr);
-    grid-template-rows: repeat(6, 1fr);
-    grid-gap:1px;
+    grid-template-rows: repeat(7, 1fr);
+    grid-gap:2px 2px;
+    
+    
 }
 
 /* button style */
@@ -59,6 +76,7 @@ form{
     grid-row-start: 1;
     grid-row-end: 2;
     background-color: white;
+    
 }
 
 #item1{
@@ -110,28 +128,37 @@ form{
     grid-row: 5;
 }
 
+#positif{
+    grid-column: 2;
+    grid-row: 6;
+
+}
+
 #submit1{
     grid-column-start: 1;
-    grid-column-end: 3;
+    grid-column-end: 4;
     grid-column: span;
-    grid-row: 6;
+    grid-row: 7;
     color: white;
     background-color: green;
 }
-#submit2{
-    grid-column-start: 2;
-    grid-column-end: 4;
-    grid-column: span;
-    grid-row: 6;
-    color: maroon;
-    background-color: aqua;
 
+#resHead{
+    grid-row: 1;
+    font-size: 12pt;
+}
+
+#content{
+    grid-row: 2;
+    font-size: 8pt;
+    color:#ddd;
 }
 </style>
+
 </head>
 
 <body>
-
+ 
 <header>
     <div class="container">
         <h1>Telepon</h1>
@@ -140,28 +167,154 @@ form{
 </header>
 
 <div class="telepon">
-    <form>
-        <input id="whiteboard" type="tel" placeholder="+6281-223-4567">
-        <input id="item1" type="button" value="1">
-        <input id="item2" type="button" value="2">
-        <input id="item3" type="button" value="3">
-        <input id="item4" type="button" value="4">
-        <input id="item5"type="button" value="5">
-        <input id="item6" type="button" value="6">
-        <input id="item7" type="button" value="7">
-        <input id="item8" type="button" value="8">
-        <input id="item9" type="button" value="9">
-        <input id="item s" type="button" value="*">
-        <input id="item0" type="button" value="0">
-        <input id="item_t" type="button" value="#">
-        <input id="submit1" type="submit" value="Sim 1">
-        <input id="submit2" type="submit" value="sim 2">
-        
+    <form id="myForm">
+        <input id="whiteboard" type="tel" placeholder="+6281-223-4567"  >
+       
+        <input id="item1" type="button" onclick="angka1()" value="1">
+        <input id="item2" type="button" onclick="angka2()" value="2">
+        <input id="item3" type="button" onclick="angka3()" value="3">
+        <input id="item4" type="button" onclick="angka4()" value="4">
+        <input id="item5"type="button" onclick="angka5()" value="5">
+        <input id="item6" type="button" onclick="angka6()" value="6">
+        <input id="item7" type="button" onclick="angka7()" value="7">
+        <input id="item8" type="button" onclick="angka8()" value="8">
+        <input id="item9" type="button" onclick="angka9()" value="9">
+        <input id="item s" type="button" onclick="bintang()" value="*">
+        <input id="item0" type="button" onclick="angka0()" value="0">
+        <input id="item_t" type="button" onclick="pagar()" value="#">
+        <input type="button" id="positif" onclick="tambah()" value="+">
+        <input id="submit1" type="button" value="Submit" onclick="submit()">
     </form>
 </div>
 
 <footer>
 
-</footer>
+    <h1 id="resHead">
+        Daftar Input Telepon
+     </h1>
+     <br>
+     <button onclick="submit()">coba</button><br>
+     <div id="content">
+     <ol>
+        <li id="list">
+            <p id="output"></p>
+        
+        </li>
+     </ol>
+             </div>   
+
+     </footer>
+
+<script>
+var strNumb = document.getElementById('whiteboard');
+var Num;
+
+function angka1(){
+    Num = "1";
+    strNumb.value += Num ;    
+    return strNumb;
+}
+
+function angka2(){
+    Num = "2";
+    strNumb.value += Num ;    
+    return strNumb;
+
+}
+
+function angka3(){
+    Num = "3";
+    strNumb.value += Num ;    
+    return strNumb;
+
+}
+
+function angka4(){
+    Num = "4";
+    strNumb.value += Num ;    
+    return strNumb;
+
+}
+
+function angka5(){
+    Num = "5";
+    strNumb.value += Num ;    
+    return strNumb;
+
+}
+
+function angka6(){
+    Num = "6";
+    strNumb.value += Num ;    
+    return strNumb;
+
+}
+
+function angka7(){
+    Num = "7";
+    strNumb.value += Num ;    
+    return strNumb;
+
+}
+
+function angka8(){
+    Num = "8";
+    strNumb.value += Num ;    
+    return strNumb;
+
+}
+
+function angka9(){
+    Num = "9";
+    strNumb.value += Num ;    
+    return strNumb;
+
+}
+
+function bintang(){
+    Num = "*";
+    strNumb.value += Num ;    
+    return strNumb;
+
+}
+
+function angka0(){
+    Num = "0";
+    strNumb.value += Num ;    
+    return strNumb;
+
+}
+
+function pagar(){
+    Num = "#";
+    strNumb.value += Num ;    
+    return strNumb;
+
+}
+
+function tambah(){
+    Num = "+";
+    strNumb.value += Num ;    
+    return strNumb;
+
+}
+
+//---------------------------------------------------
+
+function submit(){
+
+
+var Form = document.getElementById("myForm"); // form initialiting
+var isianForm = Form.whiteboard.value;
+
+var tulis =  document.getElementById('output');
+tulis.innerHTML += "<li>" +" "+Form.whiteboard.value+"<br>";    
+return tulis.innerHTML;    
+}
+
+
+</script>
+
 </body>    
 </html>
+
