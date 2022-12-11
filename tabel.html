@@ -6,10 +6,11 @@
 table{
     border:solid 2px yellow;
 }
-#demonst {
-    border:solid 2px blue;
 
+button{
+    border: 2px solid red;
 }
+
 </style>
 </head>
 <body>
@@ -17,13 +18,11 @@ table{
 <form name="Form" >
     <h3>Input Nama : </h3><input type="text" placeholder="Input Nama Anda" id="nama">
     <h3>Input Usia : </h3><input type="number" placeholder="USia ??" id="usia">
-    <h3>Penghasilan (juta RUpiah): </h3> <input type="range" min="1" max="10" id="gaji">
+    <h3>Penghasilan (juta RUpiah): </h3> <input type="range" min="1" max="20" id="gaji">
     <input type="button" value="submit" onclick="submitting()">
-    </form>
+</form>
 <br>
 
-<button onclick="submitting()">Try it</button>
-<br>
 
 <p id="demo"></p>
 <br>
@@ -42,7 +41,6 @@ table{
 
     </tbody>
 </table>
-
 
 <script>
 
@@ -72,7 +70,6 @@ for(i=0;i<enumNama.length;i++){
     
 var TRow = document.createElement("tr");
 
-var x;
     for(x=1;x<=3;x++){
 
         var TDomain = document.createElement("td");
@@ -88,17 +85,31 @@ var x;
             TRow.appendChild(TDomain);
     }
 
-
 var tbody = document.getElementById("Body");
+
+
+var Btn = document.createElement("button");
+Btn.innerHTML = "X";
+Btn.addEventListener("click", function(){
+    enumNama.splice(i, 1);
+    enumUsia.splice(i, 1);
+    enumSalary.splice(i, 1);
+    
+    TRow.removeChild(Btn);
+    TRow.removeChild(TDomain);
+    tbody.removeChild(TRow);
+
+    });      
+
+TRow.appendChild(Btn);
+
 tbody.appendChild(TRow);
         
     }    
     
 }
 
+
 </script>
 </body>
-
-
-
 </html>
