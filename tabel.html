@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Input Tabel</title>
+<style>
+table{
+    border:solid 2px yellow;
+}
+#demonst {
+    border:solid 2px blue;
+
+}
+</style>
+</head>
+<body>
+
+<form name="Form" >
+    <h3>Input Nama : </h3><input type="text" placeholder="Input Nama Anda" id="nama">
+    <h3>Input Usia : </h3><input type="number" placeholder="USia ??" id="usia">
+    <h3>Penghasilan (juta RUpiah): </h3> <input type="range" min="1" max="10" id="gaji">
+    <input type="button" value="submit" onclick="submitting()">
+    </form>
+<br>
+
+<button onclick="submitting()">Try it</button>
+<br>
+
+<p id="demo"></p>
+<br>
+<table>
+    <thead>
+        <tr>
+            <td>Tabel data survei</td>
+        </tr>
+        <tr>
+            <td>Nama </td>
+            <td>Usia</td>
+            <td>Pendapatan</td>
+        </tr>
+    </thead>
+    <tbody id="Body">
+
+    </tbody>
+</table>
+
+
+<script>
+
+var Form = document.getElementsByName("Form");
+//      INput NAma
+var nama_Nama = document.getElementById("nama")
+    
+// Usia
+var age = document.getElementById("usia");
+
+//penghasilan
+var salary = document.getElementById("gaji").value;
+
+function submitting(){
+    var enumNama=[];
+    enumNama.push(nama_Nama.value);
+    
+    var enumUsia=[];
+    enumUsia.push(age.value);
+    
+    var enumSalary=[];
+    enumSalary.push(salary);
+
+    
+
+for(i=0;i<enumNama.length;i++){
+    
+var TRow = document.createElement("tr");
+
+var x;
+    for(x=1;x<=3;x++){
+
+        var TDomain = document.createElement("td");
+        if(x==1){TDomain.innerHTML = enumNama[i];
+            }
+        
+        else if(x==2){
+            TDomain.innerHTML = enumUsia[i];
+            }
+        else if(x==3){
+            TDomain.innerHTML = enumSalary[i] + " juta";
+        }
+            TRow.appendChild(TDomain);
+    }
+
+
+var tbody = document.getElementById("Body");
+tbody.appendChild(TRow);
+        
+    }    
+    
+}
+
+</script>
+</body>
+
+
+
+</html>
